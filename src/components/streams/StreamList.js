@@ -21,8 +21,10 @@ class StreamList extends Component {
         <div className="item" key={stream.id}>
           <i className="large middle aligned icon camera" />
           <div className="content">
-            {stream.title}
-            <div className="description">{stream.description}</div>         
+            <Link to={`/streams/${stream.id}`} className="header">
+              {stream.title}
+            </Link>
+            <div className="description">{stream.description}</div>
           </div>
           {this.renderAdmin(stream)}
         </div>
@@ -35,7 +37,7 @@ class StreamList extends Component {
       return (
         <div style={{textAlign: 'right'}}>
           <Link to="/streams/new" className="ui button primary">Create Stream</Link>
-        </div>); 
+        </div>);
     }
 
   }
@@ -53,10 +55,12 @@ class StreamList extends Component {
 }
 
 const mapStateToProps = state => {
-  return { streams: Object.values(state.streams), 
-    currentUserId: state.auth.userId, 
-    isSignedIn: state.auth.isSignedIn };
-	
+  return {
+    streams: Object.values(state.streams),
+    currentUserId: state.auth.userId,
+    isSignedIn: state.auth.isSignedIn
+  };
+
 };
 export default connect(
 
