@@ -1,3 +1,20 @@
 {
-  "extends": ["react-app", "plugin:prettier/recommended"]
+  "extends": ["plugin:react/recommended", "eslint:recommended"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "jsx": true
+      }
+  },
+  "rules": {
+      "semi": "error",
+      "react/prop-types": 0,
+      "indent": ["error", 2],
+  },
+  "env": {
+    "browser": true,
+    "node": true
+}
 }
